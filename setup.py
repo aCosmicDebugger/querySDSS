@@ -9,7 +9,7 @@ setup(
     author_email='acosmicdebugger@gmail.com',
     packages=find_packages('src'),
     package_dir={'': 'src'},
-    url='https://github.com/aCosmicDebbuger/querySDSS',
+    url='https://github.com/aCosmicDebugger/querySDSS',
     keywords='example project',
     install_requires=[
           'astropy', 'astroquery',
