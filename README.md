@@ -14,11 +14,25 @@ You can install the required packages using the following command:
 pip install astroquery astropy
 ```
 
-## How to use
+## How to Install
 
 Clone this repository to your local machine using the following command:
 ```bash
 git clone https://github.com/aCosmicDebbuger/querySDSS.git
 cd querySDSS
 ```
-=======
+or you can use pip
+
+```bash
+pip install querySDSS
+```
+
+## Usage:
+
+Just opena a terminal where the file is located and run
+
+```bash
+sdss_data
+```
+
+You'll get a table of SDSS data.
