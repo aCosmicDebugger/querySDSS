@@ -32,7 +32,7 @@ pip install querySDSS
 Just opena a terminal where the file is located and run
 
 ```bash
-sdss_data
+querySDSS.py
 ```
 
 You'll get a table of SDSS data.
