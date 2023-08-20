@@ -12,6 +12,7 @@ You can install the required packages using the following command:
 
 ```bash
 pip install astroquery astropy
+```
 
 
 ## How to use
@@ -20,3 +21,4 @@ Clone this repository to your local machine using the following command:
 ```bash
 git clone https://github.com/aCosmicDebbuger/querySDSS.git
 cd querySDSS
+```
