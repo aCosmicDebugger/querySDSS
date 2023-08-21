@@ -15,41 +15,34 @@ import numpy as np
 
 def query_sdss_data():
     try:
-        # query SDSS database e pedindo os rótulos spaceobjid, ra, dec, z, fluxo banda u, i, r, e z.
-        query = """
-        SELECT
-            s.specobjid, s.ra, s.dec, s.z, s.class, p.flux_u, p.flux_g, p.flux_r, p.flux_i, p.flux_z
-        FROM
-            specObj s
-        JOIN
-            photoObjAll p ON s.bestObjID = p.objID
-        WHERE
+        # Query SDSS database and retrieve necessary columns
+        query = """SELECT TOP 100
+            p.objid, p.ra, p.dec, p.u, p.g, p.r, p.i, p.z,
+            p.run, p.rerun, p.camcol, p.field,
+            s.specobjid, s.class, s.z as redshift,
+            s.plate, s.mjd, s.fiberid
+        FROM PhotoObj AS p
+        JOIN SpecObj AS s ON s.bestobjid = p.objid
+        WHERE 
             s.z > 0 AND s.zWarning = 0
         """
-        
-        # o restulado da query é recebido por result
+
+        # Query SDSS database and retrieve data
         result = SDSS.query_sql(query)
-        
-        # caso apareça algum valor NaN nas colunas de fluxo
-        flux_columns = ['flux_u', 'flux_g', 'flux_r', 'flux_i', 'flux_z']
-        for column in flux_columns:
-            result[column] = np.nan_to_num(result[column])
-            
         return result
     except RemoteServiceError as e:
-        print("Erro ao fazer o querying SDSS:", e)
+        print("Error querying SDSS:", e)
         return None
     except ConnectionError as e:
-        print("Erro de conexão:", e)
+        print("Connection error:", e)
         return None
 
 if __name__ == "__main__":
-    # Fazendo o query
+    # Query SDSS data
     sdss_data = query_sdss_data()
     
     if sdss_data is not None:
-        # printando os dados
+        # Print the retrieved data
         print(sdss_data)
     else:
         print("Error retrieving SDSS data.")
-
