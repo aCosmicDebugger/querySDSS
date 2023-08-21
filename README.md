@@ -35,4 +35,14 @@ Just opena a terminal where the file is located and run
 python3 querySDSS.py
 ```
 
+or if you need to import it:
+```bash
+from querySDSS.querySDSS.querySDSS import query_sdss_data
+
+a = query_sdss_data()
+print(a)
+```
+
+
+
 You'll get a table of SDSS data.
