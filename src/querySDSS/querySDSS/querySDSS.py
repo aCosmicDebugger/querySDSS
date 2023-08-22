@@ -1,8 +1,6 @@
 from astroquery.sdss import SDSS
 from astroquery.exceptions import RemoteServiceError
 from requests.exceptions import ConnectionError
-from astropy.table import Table
-import numpy as np
 
 
 # Esse é um módulo Python feito por mim @aCosmicDebbuger
@@ -12,14 +10,14 @@ import numpy as np
 # o redshift, declinação e acendência e os fluxos nas bandas u,g,r,i
 
 
-
 def query_sdss_data():
     try:
-        # Query SDSS database and retrieve necessary columns
-        query = """SELECT TOP 100
+        # Faz uma SQL query para a database do SDSS
+        query = """SELECT TOP 1000
             p.objid, p.ra, p.dec, p.u, p.g, p.r, p.i, p.z,
             p.run, p.rerun, p.camcol, p.field,
-            s.specobjid, s.class, s.z as redshift,
+            CAST(s.specobjid AS CHAR) AS specobjid,
+            s.class, s.z as redshift,
             s.plate, s.mjd, s.fiberid
         FROM PhotoObj AS p
         JOIN SpecObj AS s ON s.bestobjid = p.objid
@@ -27,7 +25,7 @@ def query_sdss_data():
             s.z > 0 AND s.zWarning = 0
         """
 
-        # Query SDSS database and retrieve data
+        # retorno dos dados
         result = SDSS.query_sql(query)
         return result
     except RemoteServiceError as e:
@@ -36,6 +34,7 @@ def query_sdss_data():
     except ConnectionError as e:
         print("Connection error:", e)
         return None
+
 
 if __name__ == "__main__":
     # Query SDSS data
