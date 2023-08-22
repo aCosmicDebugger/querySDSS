@@ -36,7 +36,7 @@ python3 querySDSS.py
 ```
 
 or if you need to import it:
-```bash
+```python
 from querySDSS.querySDSS.querySDSS import query_sdss_data
 
 a = query_sdss_data()
