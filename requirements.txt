@@ -1,2 +1,5 @@
-astropy
-astroquery
+astroquery~=0.4.6
+requests~=2.31.0
+numpy~=1.25.2
+astropy~=5.3.2
+setuptools~=65.5.1
