@@ -39,7 +39,7 @@ or if you need to import it:
 ```python
 from querySDSS.querySDSS.querySDSS import query_sdss_data
 
-a = query_sdss_data()
+a = query_sdss_data(num_observations=3000)
 print(a)
 ```
 
