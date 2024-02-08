@@ -1,6 +1,6 @@
 # QuerySDSS - Retrieve and Analyze SDSS Data
 
-QuerySDSS is a Python script that utilizes the Astropy and Astroquery libraries to retrieve data from the Sloan Digital Sky Survey (SDSS) Data Release 18 (DR18). This script fetches information about celestial objects including their nature (galaxy, star, quasar), redshift, coordinates, positions, and flux values.
+querySDSS is a Python script that utilizes the Astropy and Astroquery libraries to retrieve data from the Sloan Digital Sky Survey (SDSS) Data Release 18 (DR18). This script fetches information about celestial objects including their nature (galaxy, star, quasar), redshift, coordinates, positions, and flux values.
 
 ## Requirements
 
